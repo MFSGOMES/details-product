@@ -1,0 +1,94 @@
+<mat-card>
+    <div class="container">
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-6">
+            <div class="slide-style">
+              <mat-carousel
+                timings="250ms ease-in"
+                [autoplay]="true"
+                interval="5000"
+                color="accent"
+                maxWidth="auto"
+                proportion="60"
+                slides="2"
+                [loop]="true"
+                [hideArrows]="false"
+                [hideIndicators]="true"
+                [useKeyboard]="true"
+                [useMouseWheel]="false"
+                orientation="ltr"
+              >
+              
+                <mat-carousel-slide class="slide-style"
+                  #matCarouselSlide
+                  *ngFor="let slide of product.images; let i = index"
+                  [image]="slide.url"
+                  overlayColor="#00000020"
+                  [hideOverlay]="true"
+                ></mat-carousel-slide>
+                
+              </mat-carousel>
+            </div>
+          </div>
+          <div class="col col-lg-2">
+            <h2>{{product.productName}}</h2>
+            <h3>Marca: {{product.brandName}}</h3>
+            <h3>Loja: {{product.brandName}}</h3>
+            <h3>Valor: R$ {{product.price}}</h3>
+            
+            <container-element [ngSwitch]="product.assessment">
+              <div *ngSwitchCase="1">
+                <mat-icon class="stars">star</mat-icon>
+                <mat-icon class="stars">star_border</mat-icon>
+                <mat-icon class="stars">star_border</mat-icon>
+                <mat-icon class="stars">star_border</mat-icon>
+                <mat-icon>star_border</mat-icon>
+              </div>
+              <div *ngSwitchCase="2">
+                <mat-icon>star</mat-icon>
+                <mat-icon>star</mat-icon>
+                <mat-icon>star_border</mat-icon>
+                <mat-icon>star_border</mat-icon>
+                <mat-icon>star_border</mat-icon>
+              </div>
+              <div *ngSwitchCase="3">
+                <mat-icon>star</mat-icon>
+                <mat-icon>star</mat-icon>
+                <mat-icon>star</mat-icon>
+                <mat-icon>star_border</mat-icon>
+                <mat-icon>star_border</mat-icon>
+              </div>
+              <div *ngSwitchCase="4">
+                <mat-icon class="stars">star</mat-icon>
+                <mat-icon class="stars">star</mat-icon>
+                <mat-icon class="stars">star</mat-icon>
+                <mat-icon class="stars">star</mat-icon>
+                <mat-icon class="stars">star_border</mat-icon>
+              </div>
+              <div *ngSwitchCase="5">
+                <mat-icon>star</mat-icon>
+                <mat-icon>star</mat-icon>
+                <mat-icon>star</mat-icon>
+                <mat-icon>star</mat-icon>
+                <mat-icon>star</mat-icon>
+              </div>
+                <div *ngSwitchDefault>
+                  <mat-icon>star_border</mat-icon>
+                  <mat-icon>star_border</mat-icon>
+                  <mat-icon>star_border</mat-icon>
+                  <mat-icon>star_border</mat-icon>
+                  <mat-icon>star_border</mat-icon>
+                </div>
+            </container-element>
+            <br>
+            <button class="btn btn-success" (click)="onSetQtde()">Adicionar ao carrinho</button>
+            <button class="btn btn-success">Lista de desejos</button>
+            <button class="btn btn-success">Comprar</button>
+          </div>
+          <div class="col col-lg-8">
+            Descrição do produto<br>
+            {{product.description}}
+          </div>
+        </div>
+      </div>
+</mat-card>

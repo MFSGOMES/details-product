@@ -1,0 +1,32 @@
+<mat-toolbar class="header-app">
+    <span>Detalhes do Produto</span>
+    <span class="nav-spacer"></span>
+
+    <mat-form-field class="cat-form">
+        <mat-label>Categorias</mat-label>
+        <mat-select>
+            <mat-option value="one">Notebooks</mat-option>
+            <mat-option value="two">Desktops</mat-option>
+            <mat-option value="two">Servidores</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <form class="search-form">
+        <mat-form-field>
+            <input type="text" matInput placeholder="Busca por palavra">
+        </mat-form-field>
+    </form>
+    
+    <button mat-icon-button class="button-icon">
+        <mat-icon>search</mat-icon>
+    </button>
+
+    <button mat-icon-button class="button-icon">
+        <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="button-icon">
+        <mat-icon>shopping_cart</mat-icon>
+    </button>
+    <span class="qtde-carrinho">{{qtdeCarrinho}}</span>
+</mat-toolbar>
+  
